@@ -1,0 +1,16 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.14)  14 SEP 2022 17:11
+entering extended mode
+**Assignment01.tex
+! Emergency stop.
+<*> Assignment01.tex
+                     
+Here is how much of TeX's memory you used:
+ 3 strings out of 100
+ 108 string characters out of 5000
+ 335223 words of memory out of 5000000
+ 21251 multiletter control sequences out of 15000+13779
+ 469259 words of font info for 28 fonts, out of 469259 for 500
+ 14 hyphenation exceptions out of 659
+ 0i,0n,0p,1b,6s stack positions out of 300i,50n,60p,3000b,4000s
+
+!  ==> Fatal error occurred, no output PDF file produced!
