@@ -57,11 +57,14 @@ mean_one_to_100_by_4>median_one_to_100_by_4 #I am asking R to determine if the m
 
 ```{r}
 #5
-gibbon_names <- c("hoolock", "hylobates", "nomascus", "symphalangus") #the names of the students, each representing their genus of gibbon
+gibbon_names <- c("hoolock", "hylobates", "nomascus", "symphalangus") #the names of the students, each representing their genus of gibbon, this is character
 scores <- c(100, 65, 87, 26) #scores that each gibbon got on the test
 pass <- c(TRUE, TRUE, TRUE, FALSE) #whether or not they passed the test (received a score greater than 50)
 
 #6
+gibbon_names is a character vector
+scores is a numeric vector
+pass is a logical vector
 
 #7
 gibbon_test_scores <- data.frame(gibbon_names, scores, pass) #this code creates a data frame, using the vectors as columns in the order listed
@@ -79,9 +82,14 @@ colnames(gibbon_test_scores) <- c("gibbon.name", "gibbon.test.score", "gibbon.pa
 11. Apply your function to the vector with test scores that you created in number 5.
 
 ```{r}
-ifelse(scores>50, "pass", "fail") #this code will test with if the scores in the data frame are passing (greater than 50). 
+ifelse(scores>50, "pass", "fail") #this code will test with if the scores in the data frame are passing (greater than 50).
+
+if(gibbon_test_scores$gibbon.pass.fail>50)
+ (print("pass"))
+  else(print("fail"))
+
 ```
 
 12. QUESTION: Which option of `if` and `else` vs. `ifelse` worked? Why?
 
-> Answer:'ifelse' worked for me. I believe this is because R was given two clear options that worked with the data (pass or fail). When I tried to run the 'if' code I got errors over commas that I did not get when running the 'ifelse' code. It could be user error and my limited understanding of R.
+> Answer:'ifelse' worked for me. I believe this is because R was given two clear options that worked with the data (pass or fail). When I tried to run the 'if' code I got errors over commas that I did not get when running the 'ifelse' code. When I tried to run the if/else (I left the code in the chunk) it had an error that the condition has a length > 1. I tried running this line of code to the data frame, and also directly to the scores vector without success. It is possible that if/else should work, but is not due to user error and my limited understanding of R.
