@@ -36,11 +36,16 @@ seq(1, 100, 4) #I am asking R to create a sequence from 1 to 100 by 4
 one_to_100_by_4 <- seq(1, 100, 4) #I am assigning the sequence a name
 
 #2
-mean_one_to_100_by_4 <- mean(one_to_100_by_4) #I am asking R to calculate the mean of the data set, and also assigning the mean the name mean_one_to_100_by_4
-median_one_to_100_by_4 <- median(one_to_100_by_4) #I am asking R to calculate the median of the data set, and also assigning the median the name median_one_to_100_by_4
+mean_one_to_100_by_4 <- mean(one_to_100_by_4) #I am asking R to calculate the mean of the data 
+#set, and also assigning the mean the name mean_one_to_100_by_4
+
+
+median_one_to_100_by_4 <- median(one_to_100_by_4) #I am asking R to calculate the median of the 
+#data set, and also assigning the median the name median_one_to_100_by_4
 
 #3. 
-mean_one_to_100_by_4>median_one_to_100_by_4 #I am asking R to determine if the mean is greater than the median
+mean_one_to_100_by_4>median_one_to_100_by_4 #I am asking R to determine if the mean is greater 
+#than the median
 
 
 ```
@@ -57,9 +62,12 @@ mean_one_to_100_by_4>median_one_to_100_by_4 #I am asking R to determine if the m
 
 ```{r}
 #5
-gibbon_names <- c("hoolock", "hylobates", "nomascus", "symphalangus") #the names of the students, each representing their genus of gibbon, this is character
+gibbon_names <- c("hoolock", "hylobates", "nomascus", "symphalangus") #the names of the students, 
+#each representing their genus of gibbon, this is character
+
 scores <- c(100, 65, 87, 26) #scores that each gibbon got on the test
-pass <- c(TRUE, TRUE, TRUE, FALSE) #whether or not they passed the test (received a score greater than 50)
+
+pass <- c(TRUE, TRUE, TRUE, FALSE) #whether or not they passed the test (received a score greater #than 50)
 
 #6
 #gibbon_names is a character vector
@@ -67,7 +75,8 @@ pass <- c(TRUE, TRUE, TRUE, FALSE) #whether or not they passed the test (receive
 #pass is a logical vector
 
 #7
-gibbon_test_scores <- data.frame(gibbon_names, scores, pass) #this code creates a data frame, using the vectors as columns in the order listed
+gibbon_test_scores <- data.frame(gibbon_names, scores, pass) #this code creates a data frame, 
+#using the vectors as columns in the order listed
 
 #8
 colnames(gibbon_test_scores) <- c("gibbon.name", "gibbon.test.score", "gibbon.pass.fail" )
@@ -82,12 +91,11 @@ colnames(gibbon_test_scores) <- c("gibbon.name", "gibbon.test.score", "gibbon.pa
 11. Apply your function to the vector with test scores that you created in number 5.
 
 ```{r}
-ifelse(scores>50, "pass", "fail") #this code will test with if the scores in the vector are passing (greater than 50).
+ifelse(scores>50, "pass", "fail") #this code will test with if the scores in the vector are 
+#passing (greater than 50)
 
 ```
 
 12. QUESTION: Which option of `if` and `else` vs. `ifelse` worked? Why?
 
-> Answer:'ifelse' worked for me. I believe that 'if/else' is stricker, and had an error message saying that "the condition has a length > 1." With 'if
-
-I believe this is because R was given two clear options that worked with the data (pass or fail). When I tried to run the 'if' code I got errors over commas that I did not get when running the 'ifelse' code. When I tried to run the if/else  it had an error that the condition has a length > 1. I tried running this line of code to the data frame, and also directly to the scores vector without success. It is possible that if/else should work, but is not due to user error and my limited understanding of R.
+> Answer:'ifelse' worked for me. I believe that 'if/else' had an error message saying that "the condition has a length > 1." I believe this is because ifelse can be used on vectors, but if/else must be used on things that are a length of one. The scores vector has a length of 4 so the code does not work.
