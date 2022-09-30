@@ -66,15 +66,19 @@ NTL.phys.data.JunethruOctober <- filter(NTL.phys.data, daynum %in% c(152:304))
 # filter NTL.phys.data for the year 1999
 # what code do you need to use, based on the class of the variable?
 
+NTL.phys.data.1999 <- filter(NTL.phys.data, year4 == 1999)
 
 # Exercise 2: 
 # filter NTL.phys.data for Tuesday Lake from 1990 through 1999.
-
+ NTL.phys.data.Tuesday <-
+   NTL.phys.data %>%
+   filter(lakename == "Tuesday Lake") %>%
+   filter(year4 %in% c(1990:1999))
 
 ```
 Question: Why don't we filter using row numbers?
 
-> Answer: 
+> Answer: row numbers can change. filtering we are more interested in data itself not how it is arranged
 
 ## Pipes
 
@@ -83,6 +87,7 @@ Pipe is another method to wrangle datasets that looks cleaner and is easier to r
 Let's say we want to take our raw dataset (NTL.phys.data), *then* filter the data for Peter and Paul lakes, *then* select temperature and observation information, and *then* add a column for temperature in Fahrenheit: 
 
 ```{r}
+# %>% shift control m
 NTL.phys.data.processed <- 
   NTL.phys.data %>%
   filter(lakename == "Paul Lake" | lakename == "Peter Lake") %>%
@@ -91,11 +96,27 @@ NTL.phys.data.processed <-
 
 #Exercise 3: Using a pipe filter NTL.phys.data for Tuesday Lake from 1990 through 1999 only for July 
 
+NTL.phys.data.tuesday.july <-
+  NTL.phys.data %>% 
+  filter(lakename == "Tuesday Lake") %>% 
+  filter(year4 %in% 1990:1999) %>% 
+  filter(daynum %in% 182:212)
 
-
+NTL.phys.data.Tuesday.july.2 <-
+ NTL.phys.data %>% 
+  filter(lakename == "Tuesday Lake") %>% 
+  filter(year4 %in% 1990:1999) %>% 
+  filter(month(sampledate) == 7)
 
 
 #Exercise 4: Using the data from part 3, a pipe and the summarise() function find the mean surface temperature (hints: you will need to add another filter for depth==0). Make sure you eliminate NAs before computing the means
+
+Tuesday.lake.surf.temp <-
+  NTL.phys.data.Tuesday.july.2 %>% 
+  filter(depth == 0) %>% 
+  drop_na(temperature_C) %>% 
+  summarize(mean_surf_temp = mean(temperature_C))
+  
 
   
 ```
